@@ -64,6 +64,14 @@
   .sum-card-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
   .sum-card p{font-size:12.5px;line-height:1.72;color:#3f3932;}
   @media(max-width:800px){.sum-grid{grid-template-columns:1fr;}}
+  .map-section{padding:64px max(48px,calc((100vw - 1100px)/2 + 48px)) 72px;background:var(--paper-dk);border-bottom:2px solid rgba(183,146,74,.2);scroll-margin-top:54px;}
+  .map-kicker{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  .map-title{font-family:'Playfair Display',serif;font-size:clamp(18px,2.4vw,26px);font-weight:400;line-height:1.25;margin-bottom:24px;max-width:820px;color:var(--ink);}
+  .map-frame{position:relative;width:100%;max-width:1100px;height:min(72vh,640px);border:1px solid var(--border);box-shadow:0 10px 34px rgba(58,48,34,.16);background:#dfe6e8;overflow:hidden;}
+  .map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .map-note{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--muted);margin-top:12px;max-width:1100px;line-height:1.6;}
+  .map-note a{color:var(--gold);text-decoration:none;}
+  @media(max-width:900px){.map-section{padding:48px 24px 56px;}.map-frame{height:70vh;}}
   #pol{--dom-bg:url("Politiskt.png");--dom-accent:var(--p);}
   #mil{--dom-bg:url("Miliärt.png");--dom-accent:var(--m);}
   #eko{--dom-bg:url("Ekonomiskt.png");--dom-accent:var(--e);}
@@ -155,6 +163,7 @@
 <nav class="pmesii-nav">
 <div class="nav-inner">
 <a class="nav-link" data-d="sum" href="#sum"><span class="pip" style="background:var(--gold)"></span>Sammanfattning</a>
+<a class="nav-link" data-d="sum" href="#karta"><span class="pip" style="background:var(--gold)"></span>Kartan</a>
 <a class="nav-link" data-d="p" href="#pol"><span class="pip" style="background:var(--p)"></span>P · Politiskt</a>
 <a class="nav-link" data-d="m" href="#mil"><span class="pip" style="background:var(--m)"></span>M · Militärt</a>
 <a class="nav-link" data-d="e" href="#eko"><span class="pip" style="background:var(--e)"></span>E · Ekonomiskt</a>
@@ -173,17 +182,27 @@
 <div class="sum-grid">
 <div class="sum-card">
 <div class="sum-card-label">Sverige &amp; Norden</div>
-<p>Solna tingsrätt fastslår att Migrationsverket hade rätt att avskeda en handläggare som avskedades i februari 2025. Han hade kontakter med iransk underrättelseofficer under diplomatisk täckmantel, 1 200 digitala kontakter med en efterföljande agent och skickade passbilder till Bandidos. Rätten prövade enbart lagligheten, inte spioneri. MUST-chefen varnar för kapacitetstapp när utrikesunderrättelsetjänsten UND startar 1 januari 2027 mitt i Nato-integrationen. Norska F-35 följde rysk Tu-160-formation i 16 timmar; Ryssland offentliggjorde flygningen. Kustbevakningen beväpnar KBV 002 Triton i Slite med KSP 58. Misstänkt skuggflotteanknutet fartyg undersöks utanför Gotland under Almedalsveckan.</p>
+<p>Solna tingsrätt fastslår att Migrationsverket hade rätt att avskeda en handläggare som avskedades i februari 2025. Han hade kontakter med iransk underrättelseofficer under diplomatisk täckmantel, 1 200 digitala kontakter med en efterföljande agent och skickade passbilder till Bandidos. Rätten prövade enbart lagligheten, inte spioneri. MUST-chefen varnar för kapacitetstapp när utrikesunderrättelsetjänsten UND startar 1 januari 2027 mitt i Nato-integrationen. Norska F-35 följde rysk Tu-160-formation i 16 timmar; Ryssland offentliggjorde flygningen, ett ovanligt signaleringsval. Kustbevakningen beväpnar KBV 002 Triton i Slite med KSP 58. Misstänkt skuggflotteanknutet fartyg undersöks utanför Gotland under Almedalsveckan.</p>
 </div>
 <div class="sum-card">
 <div class="sum-card-label">Europa &amp; säkerhet</div>
-<p>VSSE drabbades av dataintrång via Ivanti med röjd data om underrättelsepersonal, samma sårbarhet som tidigare utretts är med hög säkerhet kopplad till kinesisk aktör. GRU-nätverk kartlade litauisk drönartillverkare och genomförde brandförsök mot försvarsindustrileverantör. Iranska förhandlare lämnade Bürgenstock efter Trumps hot. IS-kopplad nätverksfigur kopplas till sju gripna i Belgien efter synagogaattack i Liège. Europols rapport: 731 kriminella nätverk varav 533 nya. 85 procent använder legala bolagsstrukturer.</p>
+<p>VSSE drabbades av dataintrång via Ivanti med röjd data om underrättelsepersonal kopplat med hög säkerhet till kinesisk aktör. GRU-nätverk kartlade litauisk drönartillverkare och genomförde brandförsök mot försvarsindustrileverantör. Iranska förhandlare lämnade Bürgenstock efter Trumps hot. IS-kopplad nätverksfigur kopplas till sju gripna i Belgien efter synagogaattack i Liège. Europols rapport: 731 kriminella nätverk varav 533 nya. 85 procent använder legala bolagsstrukturer.</p>
 </div>
 <div class="sum-card">
 <div class="sum-card-label">Ekonomi &amp; teknik</div>
 <p>Datacenterboomen förändrar Sveriges industriella karta: 2 000 MW reserverat och 8 000 MW ansökt hos Svenska kraftnät. Verkan AB och Sveaskog ansöker om miljötillstånd för krutfabrik i Kristinehamn med produktion 2028 som mål. Equinor investerar fyra miljarder i Trollfältet men EU:s gaslager ligger på 46 procent mot vintermålet 80. Danmark vill flytta datacenter sist i elkön. KNDS börsnoteras i Paris och Frankfurt. G7 bildar allians för kritiska mineraler mot Kinas 91-procentiga raffineringsmonopol.</p>
 </div>
 </div>
+</div>
+
+<!-- KARTAN -->
+<div class="map-section" id="karta">
+<div class="map-kicker">Kartan · Veckans händelser geografiskt</div>
+<div class="map-title">Klicka på en markör för kortet och länk till inlägget. Filtrera per PMESII-domän i kartans legend.</div>
+<div class="map-frame">
+<iframe src="https://veckobrevskartan.github.io/l-get-vecka-26-kartbild-xxxxx/" title="Veckokarta V.26 — Svensk OSINT" loading="lazy" allowfullscreen></iframe>
+</div>
+<div class="map-note">Streckad markör = transnationell händelse eller rapport utan en enskild geografisk plats. Kartan öppnas även <a href="https://veckobrevskartan.github.io/l-get-vecka-26-kartbild-xxxxx/" target="_blank" rel="noopener">i eget fönster ↗</a></div>
 </div>
 
 <!-- P · POLITISKT -->
@@ -407,7 +426,7 @@
 <div class="card-grid i2-grid">
 <a class="card" href="https://www.linkedin.com/feed/update/urn:li:activity:7476926221260410880" rel="noopener" target="_blank">
 <div class="card-geo">🇧🇪🇨🇳 Underrättelse · Dataintrång</div>
-<div class="card-title">VSSE drabbades av dataintrång via Ivanti, en sårbarhet som tidigare kopplats med hög säkerhet till kinesisk aktör</div>
+<div class="card-title">VSSE drabbades av dataintrång via Ivanti, kopplat med hög säkerhet till kinesisk aktör</div>
 <div class="card-desc">Intrång via Ivanti EPMM-sårbarhet maj 2025–våren 2026. Namn, telefonnummer, e-post och möjlig positionsdata för underrättelsepersonal röjdes. Inte sekretessbelagda system. EclecticIQ kopplar med hög säkerhet liknande exploatering till kinesisk aktör. VSSE drabbades även 2021–2023 via Barracuda.</div>
 <div class="card-arrow">↗</div>
 </a>
